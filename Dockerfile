@@ -17,7 +17,13 @@ RUN tar --extract \
               --no-same-owner
 RUN rm -rf /tmp/jdk-17.0.10_linux-x64_bin.tar.gz
 
+# Create Group & User:
+RUN adduser logdevops
+USER logdevops
+WORKDIR /home/logdevops
+
+# Installing Application:
+COPY demo-1.0.0-SNAPSHOT.jar /home/logdevops/demo-1.0.0-SNAPSHOT.jar
+
 # Port:
 EXPOSE 9020
-ADD /target/demo-1.0.0-SNAPSHOT.jar demo-1.0.0-SNAPSHOT.jar
-ENTRYPOINT ["java","-jar","demo-1.0.0-SNAPSHOT.jar"]
