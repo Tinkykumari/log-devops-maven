@@ -23,7 +23,7 @@ USER logdevops
 WORKDIR /home/logdevops
 
 # Installing Application:
-COPY demo-1.0.0-SNAPSHOT.jar /home/logdevops/demo-1.0.0-SNAPSHOT.jar
+COPY /target/demo-1.0.0-SNAPSHOT.jar /home/logdevops/demo-1.0.0-SNAPSHOT.jar
 
 # Port:
 EXPOSE 9020
